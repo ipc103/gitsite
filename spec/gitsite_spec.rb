@@ -16,7 +16,6 @@ RSpec.describe Gitsite do
     end
 
     it "finds or creates a directory for GH Pages" do
-      FileUtils.mkdir_p root_directory_name
       expect(FileUtils).to receive(:mkdir_p).with(root_directory_name)
       Gitsite.execute
     end
