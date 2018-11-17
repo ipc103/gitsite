@@ -4,7 +4,7 @@ RSpec.describe Gitsite do
   end
 
   describe '.execute' do
-    let(:root_directory_name) { Gitsite::GH_PAGES_ROOT }
+    let(:root_directory_name) { Gitsite::ROOT_DIRECTORY_NAME }
 
     after :each do
       FileUtils.rm_rf(root_directory_name)
@@ -15,7 +15,7 @@ RSpec.describe Gitsite do
       Gitsite.execute
     end
 
-    it "finds or creates a directory for GH Pages" do
+    it "finds or creates a directory with the root_directory_name" do
       expect(FileUtils).to receive(:mkdir_p).with(root_directory_name)
       Gitsite.execute
     end
